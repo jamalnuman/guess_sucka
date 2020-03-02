@@ -1,11 +1,12 @@
-import Vue from 'vue'
+import Vue from 'vue' 
 import VueRouter from 'vue-router'
 import GuessIndex from '../views/GuessIndex.vue' 
 
 Vue.use(VueRouter)
 
 const routes = [
-  {path: '/', name: "root", component: GuessIndex}
+  {path: '/', name: "root", component: GuessIndex},
+  {path: '/guess', name: "guess-index", component: GuessIndex}
 ]
 
 const router = new VueRouter({
