@@ -2,30 +2,31 @@
   <div class="guess-index">
     <span id="title-span">Welcome to GUESS SUCKA!</span>
 
-    <div id="wrapup-page" v-if="isHidden">
+      <div id="wrapup-page" v-if="isHidden">
+    
+      <h1 class="results-id" >RESULTS:</h1>
 
-      <h1>RESULTS:</h1>
-      <p>You got {{ rightCount}} question(s) correct and {{ wrongCount }} question(s) wrong.</p>
+      <p class="title-result" >You got {{ rightCount}} question(s) correct and {{ wrongCount }} question(s) wrong.</p>
 
         <ul class="result-lists" v-for="question in this.questions">
-          <li v-if="question.userChoice === question.correct_answer">
+          <li class="good-choice" v-if="question.userChoice === question.correct_answer">
             Good job, you guessed correctly. You chose {{question.userChoice}}.
           </li>
 
-          <li v-else>
+          <li class="bad-choice" v-else>
             You chose {{question.userChoice}}, but the correct answer is {{question.correct_answer}}.
           </li>
         </ul>
-       <div id="button-wrapper">
-       <button id="submit-button" @click="restartGame">
-         Restart Game
-        </button>
-      </div>
-    </div>
+        </div>
+        <div id="reset-wrapper" v-if="isHidden">
+          <button id="reset-button" @click="restartGame">
+            Restart Game
+          </button>
+         </div>
 
     <div id="main-wrapper" v-if="!isHidden">
 
-      <div id="question-wrapper">
+      <div id="qs-wrapper">
         <h2>Question:</h2>
         <h3> {{ translate(questions[incrementer].question) }} </h3>
       </div>
@@ -75,7 +76,8 @@ export default {
       isHidden: false,
       incrementer: 0,
       rightCount: 0,
-      wrongCount: 0
+      wrongCount: 0,
+      errors: []
     }
   },
   created: function() {
@@ -111,19 +113,7 @@ export default {
       var encodedString = parser.parseFromString(inputString, "text/html")
       return encodedString.body.innerText;
     },
-    restartGame: function() {
-      axios
-        .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
-        .then(response => {
-          this.questions = response.data.results;
-          this.questions.forEach(function(question) {
-            question.incorrect_answers.push(question.correct_answer).shuffle;
-          });
-        });
-      this.incrementer = 0;
-      this.isHidden = false;
-      this.rightCount = 0;
-      this.wrongCount = 0;  
+    restartGame: function() { 
       this.$router.push('/')
     }
   }
