@@ -41,7 +41,9 @@
       <div id="button-wrapper">
 
         <button id="submit-button" @click="submitAnswer">
-          Submit Answer
+            <h3>
+              Submit Answer
+            </h3>
         </button>
       </div>
 
@@ -78,7 +80,7 @@ export default {
   },
   created: function() {
     axios
-      .get(`/api.php?amount=${this.$route.query.amount}&category=11&difficulty=${this.$route.query.difficulty}&type=multiple`)
+      .get(`/api.php?amount=${this.$route.query.amount}&category=10&difficulty=${this.$route.query.difficulty}&type=multiple`)
       .then(response => {
 
         console.log(response)
