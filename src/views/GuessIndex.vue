@@ -41,7 +41,9 @@
       <div id="button-wrapper">
 
         <button id="submit-button" @click="submitAnswer">
-          Submit Answer
+            <h3>
+              Submit Answer
+            </h3>
         </button>
       </div>
 

@@ -72,7 +72,7 @@ body {
   background-color: #86989B;
   font-size: 1em;
   width: 50%;
-  padding: 10px 20px;
+  padding: 20px 20px;
 }
 
 #wrapup-page {

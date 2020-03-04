@@ -3,7 +3,7 @@
   <div class="guess-index">
    <span id="title-span">Welcome to GUESS SUCKA!</span>
     <div id="greating">
-      <span>Please Select from the following categories to play.</span>
+      <span>Please select from the following categories to play.</span>
     </div>
   <form v-on:submit.prevent="startGame()">
     <div id="question-wrapper">
@@ -26,8 +26,8 @@
         <option v-for='difficulty in this.difficultyLevel'>{{difficulty}}</option>
       </select>
 
-    </div>
-    <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=' + userCategory + '&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" id="submit-button name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
+    </div id="button-wrapper">
+    <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=' + userCategory + '&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" id="submit-button" name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
   </form>  
   </div>
 </template>
