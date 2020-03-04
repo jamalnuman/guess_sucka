@@ -25,15 +25,13 @@
       <select v-model='userDifficulty'>
         <option v-for='difficulty in this.difficultyLevel'>{{difficulty}}</option>
       </select>
-      </div>
-      
-      <button id="submit-button" type="submit" >
-        Start the game!
-      </button> 
-    </form>  
+    </div>
+    <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=11&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
+  </form>  
   </div>
-
 </template>
+
+<!-- /foo?user=1 -->
 
 <style>
 </style>
@@ -56,15 +54,6 @@ export default {
   },
   created: function() {
   },
-  methods: {
-  startGame: function() {
-    axios
-
-      .get(`/api.php?amount=${this.numberOfQuestions}&category=11&difficulty=${this.userDifficulty}&type=multiple`)
-      .then(response => {
-        console.log(response)
-      });
-    }
-  }
+  methods:{}
 };
 </script>
