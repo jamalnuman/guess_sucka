@@ -25,11 +25,18 @@
       <select v-model='userDifficulty'>
         <option v-for='difficulty in this.difficultyLevel'>{{difficulty}}</option>
       </select>
+    </div>
+      <div id="question-wrapper">
+        <h4>Please select a level of difficulty.</h4>
+        <select v-model='userDifficulty'>
+          <option v-for='difficulty in this.difficultyLevel'>{{difficulty}}</option>
+        </select>
+      </div id="button-wrapper">
 
-    </div id="button-wrapper">
-    <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=' + userCategory + '&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" id="submit-button" name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
-  </form>  
+      <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=' + userCategory + '&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" id="submit-button" name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
+    </form>  
   </div>
+  
 </template>
 
 
