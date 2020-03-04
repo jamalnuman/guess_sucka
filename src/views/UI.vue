@@ -1,27 +1,33 @@
 <template>
-  <div class="ui-index">
-    <h1>Welcome to GUESS SUCKA!</h1>
-    <p>Please Select from the following categories to play.</p>
+  
+  <div class="guess-index">
+   <span id="title-span">Welcome to GUESS SUCKA!</span>
+    <div id="greating">
+      <span>Please Select from the following categories to play.</span>
+    </div>
   <form v-on:submit.prevent="startGame()">
-    <div>
-        <label for="quantity">Select the number of questions (btw 1 and 50):</label>
-        <input v-model='numberOfQuestions' type="number" id="quantity" name="quantity" min="1" max="50">
+    <div id="question-wrapper">
+      <h4>Select the number of questions (btw 1 and 50):</h4>
+      <label for="quantity">
+    </label>
+      <input v-model='numberOfQuestions' type="number" id="quantity" name="quantity" min="1" max="50">
     </div>
 
-    <div>
-      Please select a category from the drop-down menu.
+    <div id="question-wrapper">
+      <h4>Please select a category from the drop-down menu.</h4>
       <select v-model='userCategory'>
         <option v-for='category in this.selectCategory' :value="category.id">{{category.name}}</option>
       </select>
     </div>
 
-    <div>
-      Please select a level of difficulty. 
+    <div id="question-wrapper">
+      <h4>Please select a level of difficulty.</h4>
       <select v-model='userDifficulty'>
         <option v-for='difficulty in this.difficultyLevel'>{{difficulty}}</option>
       </select>
+
     </div>
-    <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=' + userCategory + '&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
+    <router-link v-bind:to="'/guess?amount=' + numberOfQuestions + '&category=' + userCategory + '&difficulty=' + userDifficulty + '&type=multiple'"><input type="submit" id="submit-button name="Start the game!"></router-link><!-- ..do a router link..to the guessindex page...within the router link include the params...then use this.router.params to do string interpolations -->
   </form>  
   </div>
 </template>
@@ -34,7 +40,7 @@
 
 <script>
   var axios = require("axios")
-
+  
 export default {
   data: function() {
     return {
