@@ -1,27 +1,35 @@
 <template>
-  <div class="guess-index">
+  <div class="ui-index">
     <span id="title-span">Welcome to GUESS SUCKA!</span>
 
     <div id="wrapup-page" v-if="isHidden">
+
       <h1>RESULTS:</h1>
       <p>You got {{ rightCount}} question(s) correct and {{ wrongCount }} question(s) wrong.</p>
+
         <ul class="result-lists" v-for="question in this.questions">
           <li v-if="question.userChoice === question.correct_answer">
             Good job, you guessed correctly. You chose {{question.userChoice}}.
           </li>
+          
           <li v-else>
             You chose {{question.userChoice}}, but the correct answer is {{question.correct_answer}}.
           </li>
         </ul>
+
       <button @click="restartGame">
         Restart Game
       </button>
+
     </div>
+
     <div id="main-wrapper" v-if="!isHidden">
+
       <div id="question-wrapper">
         <h2>Question:</h2>
         <h3> {{ questions[incrementer].question }} </h3>
       </div>
+
       <div id="choice-wrapper">
         <select id="questions-select-box" v-model="questions[incrementer].userChoice">
           <option v-for="choice in questions[incrementer].incorrect_answers">
@@ -29,6 +37,7 @@
           </option>
         </select>
       </div>
+
       <div id="button-wrapper">
         <button id="submit-button" @click="submitAnswer">
           Submit Answer
@@ -36,6 +45,7 @@
       </div>
 
     </div>
+
   </div>
 </template>
 
@@ -66,11 +76,12 @@ export default {
   },
   created: function() {
     axios
-      .get("https://opentdb.com/api.php?amount=4&category=11&difficulty=easy&type=multiple")
+      .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
       .then(response => {
+        console.log(response)
         this.questions = response.data.results;
         this.questions.forEach(function(question) {
-          question.incorrect_answers.push(question.correct_answer).shuffle;
+        question.incorrect_answers.push(question.correct_answer).shuffle;
         });
 
       });
@@ -89,9 +100,18 @@ export default {
       }
     },
     restartGame: function() {
+      axios
+        .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
+        .then(response => {
+          this.questions = response.data.results;
+          this.questions.forEach(function(question) {
+            question.incorrect_answers.push(question.correct_answer).shuffle;
+          });
+        });
       this.incrementer = 0;
       this.isHidden = false;
-      this.$router.push('/')
+      rightCount: 0;
+      wrongCount: 0;  
     }
   }
 };
