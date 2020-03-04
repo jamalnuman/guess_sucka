@@ -7,21 +7,21 @@
     </div>
   <form v-on:submit.prevent="startGame()">
     <div id="question-wrapper">
-      <h4>Select the number of questions (btw 1 and 50):</h4>
+      <h4 class="h4-changes">Select the number of questions (btw 1 and 50):</h4>
       <label for="quantity">
     </label>
       <input v-model='numberOfQuestions' type="number" id="quantity" name="quantity" min="1" max="50">
     </div>
 
     <div id="question-wrapper">
-      <h4>Please select a category from the drop-down menu.</h4>
+      <h4 class="h4-changes">Please select a category from the drop-down menu.</h4>
       <select v-model='userCategory'>
         <option v-for='category in this.selectCategory' :value="category.id">{{category.name}}</option>
       </select>
     </div>
 
     <div id="question-wrapper">
-      <h4>Please select a level of difficulty.</h4>
+      <h4 class="h4-changes">Please select a level of difficulty.</h4>
       <select v-model='userDifficulty'>
         <option v-for='difficulty in this.difficultyLevel'>{{difficulty}}</option>
       </select>
