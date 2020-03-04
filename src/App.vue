@@ -1,16 +1,19 @@
 <template> 
   <div id="app">
-<!--     <div id="nav">
-      <router-link to="/">Home</router-link>
-    </div> -->
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/ui">UI</router-link> 
+    </div>
     <router-view/>
   </div>
 </template>
 
 <style>
 body {
-  background-color: Azure;
+  font-family: "Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
+  background-image: url("/brickwall.png");
 }
+
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -20,13 +23,13 @@ body {
 }
 
 .guess-index {
-  padding: 30px;
+  padding: 40px;
 }
 
 #title-span {
-  border: 2px solid black;
-  background-color: BurlyWood;
-  padding: 5px 20px;
+  border: 10px solid black;
+  background-color: #4D658D;
+  padding: 20px 20px;
   font-size: 3.5em;
   border-radius: 40px;
 }
@@ -37,33 +40,36 @@ body {
 
 #choice-wrapper {
   border: 2px solid black;
-  background-color: beige;
-  margin: 10px;
-  padding: 16px 0;
+  background-color: #04A4C2;
+  margin: 80px;
+  padding: 40px 0;
+  border-radius: 30px;
+
 }
 
 #question-wrapper {
   border: 2px solid black;
-  background-color: beige;
-  margin: 10px;
-  padding-bottom: 30px;
+  background-color: #04A4C2;
+  margin: 60px;
+  padding-bottom: 50px;
+  border-radius: 30px;
 }
 
 #questions-select-box {
   font-size: 1.6em;
   width: 50%;
-  background-color: Azure;
+  background-color: 000000;
 }
 
 #button-wrapper {
-  margin: 10px;
+  margin: 20px;
 }
 
 #submit-button {
   border: 2px solid black;
   border-radius: 30px;
   text-decoration: none;
-  background-color: LemonChiffon;
+  background-color: #86989B;
   font-size: 1em;
   width: 50%;
   padding: 10px 20px;
@@ -71,7 +77,7 @@ body {
 
 #wrapup-page {
   border: 4px solid black;
-  background-color: beige;
+  background-color: #D4F4FB;
   margin-top: 25px;
 }
 
@@ -79,9 +85,28 @@ body {
   text-align: justify;
   width: 46%;
   display: inline-block;
+  
 }
 
 .result-lists li{
   padding: 10px 0;
+  margin: 10px;
 }
+
+#second-page {
+  border: 2px solid black;
+  background-color: #4D658D;
+  padding: 5px 20px;
+  font-size: 3.5em;
+  border-radius: 40px;
+}
+#greating {
+  margin: 50px;
+  border: 5px solid black;
+  background-color: #4D658D;
+  padding: 9px 20px;
+  font-size: 3.5em;
+  border-radius: 90px;
+}
+
 </style>
