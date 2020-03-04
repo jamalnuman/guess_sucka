@@ -80,7 +80,7 @@ export default {
   },
   created: function() {
     axios
-      .get(`/api.php?amount=${this.$route.query.amount}&category=10&difficulty=${this.$route.query.difficulty}&type=multiple`)
+      .get(`/api.php?amount=${this.$route.query.amount}&category=${this.$route.query.category}&difficulty=${this.$route.query.difficulty}&type=multiple`)
       .then(response => {
 
         console.log(response)
