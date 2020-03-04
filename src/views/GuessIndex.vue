@@ -122,7 +122,7 @@ export default {
       this.isHidden = false;
       this.rightCount = 0;
       this.wrongCount = 0;  
-      this.$router.push('/ui')
+      this.$router.push('/')
     }
   }
 };

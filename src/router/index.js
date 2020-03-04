@@ -7,9 +7,9 @@ import UI from '../views/UI.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {path: '/', name: "root", component: GuessIndex},
+  // {path: '/', name: "root", component: GuessIndex},
   {path: '/guess', name: "guess-index", component: GuessIndex},
-  {path: '/ui', name: 'ui-index', component: UI}
+  {path: '/', name: 'ui-index', component: UI}
 
 ]
 
