@@ -11,7 +11,7 @@
           <li v-if="question.userChoice === question.correct_answer">
             Good job, you guessed correctly. You chose {{question.userChoice}}.
           </li>
-          
+
           <li v-else>
             You chose {{question.userChoice}}, but the correct answer is {{question.correct_answer}}.
           </li>
@@ -76,12 +76,12 @@ export default {
   },
   created: function() {
     axios
-      .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
+      .get(`/api.php?amount=${this.$route.query.amount}&category=11&difficulty=${this.$route.query.difficulty}&type=multiple`)
       .then(response => {
         console.log(response)
         this.questions = response.data.results;
         this.questions.forEach(function(question) {
-        question.incorrect_answers.push(question.correct_answer).shuffle;
+          question.incorrect_answers.push(question.correct_answer).shuffle;
         });
 
       });
@@ -100,18 +100,7 @@ export default {
       }
     },
     restartGame: function() {
-      axios
-        .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
-        .then(response => {
-          this.questions = response.data.results;
-          this.questions.forEach(function(question) {
-            question.incorrect_answers.push(question.correct_answer).shuffle;
-          });
-        });
-      this.incrementer = 0;
-      this.isHidden = false;
-      rightCount: 0;
-      wrongCount: 0;  
+      this.$router.push('/ui')  
     }
   }
 };
