@@ -41,9 +41,7 @@
       <div id="button-wrapper">
 
         <button id="submit-button" @click="submitAnswer">
-            <h3>
-              Submit Answer
-            </h3>
+            <h3> Submit Answer</h3>
         </button>
       </div>
 
@@ -80,7 +78,7 @@ export default {
   },
   created: function() {
     axios
-      .get(`/api.php?amount=${this.$route.query.amount}&category=${this.$route.query.category}&difficulty=${this.$route.query.difficulty}&type=multiple`)
+      .get(`/api.php?amount=${this.$route.query.amount || 10}&category=${this.$route.query.category || 21}&difficulty=${this.$route.query.difficulty || 'easy'}&type=multiple`)
       .then(response => {
 
         console.log(response)
@@ -112,18 +110,6 @@ export default {
       return encodedString.body.innerText;
     },
     restartGame: function() {
-      axios
-        .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
-        .then(response => {
-          this.questions = response.data.results;
-          this.questions.forEach(function(question) {
-            question.incorrect_answers.push(question.correct_answer).shuffle;
-          });
-        });
-      this.incrementer = 0;
-      this.isHidden = false;
-      this.rightCount = 0;
-      this.wrongCount = 0;  
       this.$router.push('/')
     }
   }
