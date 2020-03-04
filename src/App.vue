@@ -32,6 +32,9 @@ body {
   padding: 20px 20px;
   font-size: 3.5em;
   border-radius: 40px;
+  font-weight: bold;
+  margin: 50px;
+
 }
 
 #main-wrapper {
@@ -41,18 +44,32 @@ body {
 #choice-wrapper {
   border: 2px solid black;
   background-color: #04A4C2;
-  margin: 80px;
+  margin: 0 auto;
+  margin-top: 30px;
   padding: 40px 0;
   border-radius: 30px;
+  border-radius: 30px;
+  width: 700px;
+  height: 110px;
+  padding: 30px;
+  box-shadow: 5px 10px;
 
 }
 
 #question-wrapper {
   border: 2px solid black;
   background-color: #04A4C2;
-  margin: 60px;
-  padding-bottom: 50px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
   border-radius: 30px;
+  width: 1000px;
+  height: 180px;
+  padding: 30px;
+  box-shadow: 5px 10px;
+
+  
 }
 
 #questions-select-box {
@@ -62,7 +79,8 @@ body {
 }
 
 #button-wrapper {
-  margin: 20px;
+  margin: 40px;
+
 }
 
 #submit-button {
@@ -78,14 +96,14 @@ body {
 #wrapup-page {
   border: 4px solid black;
   background-color: #D4F4FB;
-  margin-top: 25px;
+  margin-top: 55px;
+  border-radius: 40px;
 }
 
 .result-lists {
   text-align: justify;
   width: 46%;
   display: inline-block;
-  
 }
 
 .result-lists li{
@@ -107,6 +125,62 @@ body {
   padding: 9px 20px;
   font-size: 3.5em;
   border-radius: 90px;
+
+}
+
+.good-choice {
+  color: green;
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.bad-choice {
+  color: red;
+  font-style: italic;
+  font-size: 1.5em;
+  font-weight: bold;
+  
+}
+.title-result {
+  font-style: italic;
+  font-size: 2em;
+  font-weight: bold;
+}
+.results-id {
+  font-size: 3.5em;
+  font-weight: 900
+}
+.h4-changes {
+  font-size: 2.5em;
+  font-weight: 800;
+}
+.reset-wrapper {
+  margin: 40px;
+}
+#reset-button {
+  border: 2px solid black;
+  border-radius: 30px;
+  text-decoration: none;
+  background-color: #86989B;
+  font-size: 1em;
+  width: 50%;
+  padding: 20px 20px;
+  margin: 30px;
+
+}
+#qs-wrapper {
+    border: 2px solid black;
+  background-color: #04A4C2;
+  margin: 0 auto;
+  margin-top: 50px;
+  /*margin-bottom: 20px;
+  padding-bottom: 30px;*/
+  border-radius: 30px;
+  width: 1000px;
+  height: 180px;
+  padding: 30px;
+  box-shadow: 5px 10px;
 }
 
 </style>
