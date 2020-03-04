@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-index">
+  <div class="guess-index">
     <span id="title-span">Welcome to GUESS SUCKA!</span>
 
     <div id="wrapup-page" v-if="isHidden">
@@ -16,18 +16,18 @@
             You chose {{question.userChoice}}, but the correct answer is {{question.correct_answer}}.
           </li>
         </ul>
-
-      <button @click="restartGame">
-        Restart Game
-      </button>
-
+       <div id="button-wrapper">
+       <button id="submit-button" @click="restartGame">
+         Restart Game
+        </button>
+      </div>
     </div>
 
     <div id="main-wrapper" v-if="!isHidden">
 
       <div id="question-wrapper">
         <h2>Question:</h2>
-        <h3> {{ questions[incrementer].question }} </h3>
+        <h3> {{ translate(questions[incrementer].question) }} </h3>
       </div>
 
       <div id="choice-wrapper">
@@ -39,6 +39,7 @@
       </div>
 
       <div id="button-wrapper">
+
         <button id="submit-button" @click="submitAnswer">
           Submit Answer
         </button>
@@ -87,6 +88,7 @@ export default {
         });
 
       });
+
   },
   methods: {
     submitAnswer: function() {
@@ -102,6 +104,11 @@ export default {
 
       }
     },
+    translate: function(inputString) {
+      var parser = new DOMParser()
+      var encodedString = parser.parseFromString(inputString, "text/html")
+      return encodedString.body.innerText;
+    },
     restartGame: function() {
       axios
         .get("/api.php?amount=4&category=11&difficulty=easy&type=multiple")
@@ -113,8 +120,8 @@ export default {
         });
       this.incrementer = 0;
       this.isHidden = false;
-      rightCount: 0;
-      wrongCount: 0;  
+      this.rightCount = 0;
+      this.wrongCount = 0;  
     }
   }
 };
