@@ -34,7 +34,7 @@
       <div id="choice-wrapper">
         <select id="questions-select-box" v-model="questions[incrementer].userChoice">
           <option v-for="choice in questions[incrementer].incorrect_answers">
-            {{ choice }}
+            {{ translate(choice) }}
           </option>
         </select>
       </div>
@@ -83,7 +83,7 @@ export default {
       .get(`/api.php?amount=${this.$route.query.amount || 10}&category=${this.$route.query.category || 21}&difficulty=${this.$route.query.difficulty || 'easy'}&type=multiple`)
       .then(response => {
 
-        console.log(response)
+        //console.log(response)
         this.questions = response.data.results;
         this.questions.forEach(function(question) {
           question.incorrect_answers.push(question.correct_answer).shuffle;
@@ -109,7 +109,9 @@ export default {
     translate: function(inputString) {
       var parser = new DOMParser()
       var encodedString = parser.parseFromString(inputString, "text/html")
+      //console.log(encodedString)
       return encodedString.body.innerText;
+      //console.log(encodedString.body.innerText)
     },
     restartGame: function() {
       this.$router.push('/')

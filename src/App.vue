@@ -118,6 +118,7 @@ body {
   font-size: 3.5em;
   border-radius: 40px;
 }
+
 #greating {
   margin: 50px;
   border: 5px solid black;
